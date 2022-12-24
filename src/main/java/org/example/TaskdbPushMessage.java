@@ -12,7 +12,7 @@ public class TaskdbPushMessage {
     private static final String BODY = "님이 답변을 등록하였습니다.";
     private static final String SEND_FAIL = "전송 실패";
 
-    private void send(String token, String nickname) {
+    private static void send(String token, String nickname) {
         try {
             sendPushNotification(token, nickname);
         } catch (ExecutionException | InterruptedException e) {
@@ -20,12 +20,12 @@ public class TaskdbPushMessage {
         }
     }
 
-    private void sendPushNotification(String token, String nickname) throws ExecutionException, InterruptedException {
+    private static void sendPushNotification(String token, String nickname) throws ExecutionException, InterruptedException {
         Message message = createPushMessage(token, nickname);
         FirebaseMessaging.getInstance().sendAsync(message).get();
     }
 
-    private Message createPushMessage(String token, String nickname) {
+    private static Message createPushMessage(String token, String nickname) {
         return Message.builder()
                 .setWebpushConfig(WebpushConfig.builder()
                         .setNotification(WebpushNotification.builder()
