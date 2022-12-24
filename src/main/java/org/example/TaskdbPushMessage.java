@@ -12,7 +12,7 @@ public class TaskdbPushMessage {
     private static final String BODY = "님이 답변을 등록하였습니다.";
     private static final String SEND_FAIL = "전송 실패";
 
-    private static void send(String token, String nickname) {
+    public static void send(String token, String nickname) {
         try {
             sendPushNotification(token, nickname);
         } catch (ExecutionException | InterruptedException e) {
