@@ -38,9 +38,20 @@ dependencies {
 }
 ```
 
+## 라이브러리 호출
+총 2가지의 메서드를 호출할 수 있습니다. 
+
+```java
+CreateFirebaseOptions.create(//InputStream path, String	 projectId);
+```
+```java
+SendPushNotification.send(//PushMessage message);
+```
+
 ## 적용 예시
 
 FCM을 설정할 때 아래와 같이 간단하게 사용할 수 있습니다.
+
 ```java
 @Component
 public class FcmConfig {
@@ -54,11 +65,7 @@ public class FcmConfig {
     }
 }
 ```
-
-푸시 메세지를 보내는 로직은 다음과 같습니다.
-```java
-SendPushNotification.send(message);
-```
+<br>
 
 message는 PushMessage 클래스여야 합니다. Builder 패턴으로 생성할 수 있습니다.
 ```java
@@ -70,3 +77,5 @@ message는 PushMessage 클래스여야 합니다. Builder 패턴으로 생성할
                 .build();
     }
 ```
+
+실제로 위 두 기능을 추가하면 푸시 메세지가 제대로 작동합니다! 
